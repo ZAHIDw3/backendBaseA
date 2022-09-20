@@ -1,15 +1,20 @@
 const express = require('express')
+const messages = require('./routes/messager')
 
 class Server{
     constructor(){
         this.app = express()
+        this.paths ={
+            messages:"/api/vi/messages"   
+        }
         this.routes()
     }
 
-    routes(){
-        this.app.get('/',(req, res)=>{
-            res.send('Hola mundo')
-        })
+    routes(){      
+        //this.app.get('/',(req, res)=>{
+            //res.send('Hola mundo')
+       // })
+       this.app.use(this.paths.messages, messages)
     }
 
     listen(){
