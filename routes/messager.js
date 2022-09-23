@@ -3,7 +3,10 @@ const router= Router()
 const {
     rootMessage,
     hiMessage,
-    byeMessage
+    byeMessage,
+    postMessage,
+    putMessage,
+    deleteMessage
 } = require('../controllers/messages.js')
 
 router.get('/',rootMessage)
@@ -11,5 +14,9 @@ router.get('/',rootMessage)
 router.get('/h1',hiMessage)
 
 router.get('/bye',byeMessage)
+
+router.post('/',postMessage)
+router.put('/',putMessage)
+router.delete('/',deleteMessage)
 
 module.exports = router
