@@ -1,9 +1,11 @@
+const { request, response } = require("express")
+
 const rootMessage = (req, res)=>{
     res.send('Hola buen dia')
 }
 
-const hiMessage = (req, res)=>{
-    res.send('Hola mundo')
+const hiMessage = (req=request, res=response)=>{
+    res.json({msg:"Hola mundo"})
 }
 
 const byeMessage = (req, res)=>{
