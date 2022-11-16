@@ -1,6 +1,7 @@
 const express = require('express')
 const messagesRouter = require('./routes/messager')
 const usuariosRouter = require('./routes/usuarios')
+const asphalt8Router = require('./routes/asphalt8')
 const cors = require("cors")
 
 class Server{
@@ -8,7 +9,8 @@ class Server{
         this.app = express()
         this.paths ={
             messages:"/api/v1/messages",   
-            usuarios: "/api/v1/usuarios"
+            usuarios: "/api/v1/usuarios",
+            asphalt8: "/api/v1/asphalt8"
         }
         this.middlewares()
         this.routes()
@@ -20,6 +22,7 @@ class Server{
        // })
        this.app.use(this.paths.messages, messagesRouter)
        this.app.use(this.paths.usuarios, usuariosRouter)
+       this.app.use(this.paths.asphalt8, asphalt8Router)
     }
 
     middlewares(){

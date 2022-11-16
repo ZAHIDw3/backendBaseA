@@ -9,7 +9,7 @@ const getUser = async(req=request,res=response)=>{
 
     try{
         conn = await pool.getConnection()
-        const users = await conn.query(modeloUsuarios.queryGetUsers,(error)=>{throw new error})
+        const [users] = await conn.query(modeloUsuarios.queryGetUsers,(error)=>{throw new error})
         if(!users){
             res.status(404).json({msg:"No se encontraron registros"})
             return
